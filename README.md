@@ -32,6 +32,11 @@ This plugin adds a `xs` object to your router instance, containing the following
 - `transitionError$`: an observable of transition errors
 - `routeNode(nodeName)`: a function returning an observable of route updates for the specified node. See [understanding router5](http://router5.github.io/docs/understanding-router5.html).
 
+### Related
+
+- [RxJS 5+ plugin](https://github.com/router5/router5-rx)
+- [RxJS 4 plugin](https://github.com/router5/router5-rx4)
+
 ### Contributing
 
 Please read [contributing guidelines](https://github.com/router5/router5/blob/master/CONTRIBUTING.md) on router5 repository.
