@@ -5,7 +5,7 @@ import transitionPath from 'router5.transition-path';
 export const pluginName = 'XS_PLUGIN';
 
 function xsPluginFactory() {
-    function xsPlugin() {
+    function xsPlugin(router) {
         let listener;
 
         const dispatch = (type, isError) => (toState, fromState, error) => {
