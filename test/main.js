@@ -1,29 +1,32 @@
 import { expect } from 'chai';
 import { Stream } from 'xstream';
-import { initialisePlugin, router } from './_helpers';
+import createRouter from 'router5';
+import createObservables from '../modules';
 
 describe('xsPlugin', () => {
+    let observables;
+
     before(() => {
-        initialisePlugin();
+        observables = createObservables(createRouter());
     });
 
     it('should initialise observables', () => {
-        expect(router.xs).to.exist;
+        expect(observables).to.exist;
     });
 
     it('should expose a route$ observable', () => {
-        expect(router.xs.route$).to.be.instanceof(Stream);
+        expect(observables.route$).to.be.instanceof(Stream);
     });
 
     it('should expose a routeNode observable factory', () => {
-        expect(router.xs.routeNode('')).to.be.instanceof(Stream);
+        expect(observables.routeNode('')).to.be.instanceof(Stream);
     });
 
     it('should expose a transitionError$ observable', () => {
-        expect(router.xs.transitionError$).to.be.instanceof(Stream);
+        expect(observables.transitionError$).to.be.instanceof(Stream);
     });
 
     it('should expose a transitionRoute$ observable', () => {
-        expect(router.xs.transitionRoute$).to.be.instanceof(Stream);
+        expect(observables.transitionRoute$).to.be.instanceof(Stream);
     });
 });
