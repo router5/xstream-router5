@@ -1,27 +1,37 @@
-[![npm version](https://badge.fury.io/js/router5-xstream.svg)](https://badge.fury.io/js/router5-xstream)
-[![Build Status](https://travis-ci.org/router5/router5-xstream.svg?branch=master)](https://travis-ci.org/router5/router5-xstream?branch=master)
-[![Coverage Status](https://coveralls.io/repos/router5/router5-xstream/badge.svg?branch=master&service=github)](https://coveralls.io/github/router5/router5-xstream?branch=master)
+[![npm version](https://badge.fury.io/js/xstream-router5.svg)](https://badge.fury.io/js/xstream-router5)
+[![Build Status](https://travis-ci.org/router5/xstream-router5.svg?branch=master)](https://travis-ci.org/router5/xstream-router5?branch=master)
 
-__NOT PUBLISHED YET__: waiting for router5 4.0.0 to be published
+# xstream-router5
 
-# router5-xstream
-
-[xstream](http://staltz.com/xstream/) plugin for [router5](http://router5.github.io)
+[xstream](http://staltz.com/xstream/) integration with [router5](http://router5.github.io)
 
 ```sh
-npm install --save router5-xstream
+npm install --save xstream-router5
 ```
 
 ### Usage
 
+_xstream-router5_ exports a single function `createObservables`:
+
 ```js
-import xsPlugin from 'router5-xstream';
+import createRouter from 'router5';
+import createObservables from 'xstream-router5';
 
-router
-    .usePlugin(xsPlugin());
-    .start(());
+const router = createRouter([
+    { name: 'home', path: '/home' },
+    { name: 'about', path: '/about' }
+]);
 
-router.xs.route$.map((route) => { /* ... */ })
+const {
+    route$,
+    routeNode,
+    transitionError$,
+    transitionRoute$
+} = createObservables(router)
+
+router.start();
+
+route$.map((route) => { /* ... */ })
 ```
 
 ### Available observables
@@ -30,13 +40,9 @@ This plugin adds a `xs` object to your router instance, containing the following
 - `route$`: an observable of your application route
 - `transitionRoute$`: an observable of the currently transitioning route
 - `transitionError$`: an observable of transition errors
-- `routeNode(nodeName)`: a function returning an observable of route updates for the specified node. See [understanding router5](http://router5.github.io/docs/understanding-router5.html).
+- `routeNode(nodeName = '')`: a function returning an observable of route updates for the specified node. See [understanding router5](http://router5.github.io/docs/understanding-router5.html).
 
 ### Related
 
-- [RxJS 5+ plugin](https://github.com/router5/router5-rx)
-- [RxJS 4 plugin](https://github.com/router5/router5-rx4)
-
-### Contributing
-
-Please read [contributing guidelines](https://github.com/router5/router5/blob/master/CONTRIBUTING.md) on router5 repository.
+- [@reactivex/rxjs plugin (RxJS 5)](https://github.com/router5/rxjs-router5)
+- [RxJS plugin (RxJS 4)](https://github.com/router5/rx-router5)
