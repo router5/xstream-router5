@@ -36,7 +36,7 @@ route$.map((route) => { /* ... */ })
 
 ### Available observables
 
-This plugin adds a `xs` object to your router instance, containing the following:
+`createObservables` returns the following observables:
 - `route$`: an observable of your application route
 - `transitionRoute$`: an observable of the currently transitioning route
 - `transitionError$`: an observable of transition errors
