@@ -44,5 +44,5 @@ route$.map((route) => { /* ... */ })
 
 ### Related
 
-- [@reactivex/rxjs plugin (RxJS 5)](https://github.com/router5/rxjs-router5)
-- [RxJS plugin (RxJS 4)](https://github.com/router5/rx-router5)
+- [rxjs-router5](https://github.com/router5/rxjs-router5)
+- [rx-router5](https://github.com/router5/rx-router5)
