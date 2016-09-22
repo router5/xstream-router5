@@ -1,6 +1,6 @@
 {
   "name": "xstream-router5",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "xstream plugin for router5",
   "main": "index.js",
   "scripts": {
